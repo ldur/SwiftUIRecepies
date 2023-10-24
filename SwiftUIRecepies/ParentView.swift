@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ParentView: View {
+    @ObservedObject var viewModel = ItemViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(viewModel.items) { item in
+                    NavigationLink(destination: SubView(item: item)) {
+                        Text(item.name)
+                    }
+                }
+            }
+            .navigationBarTitle("Items")
+        }
     }
 }
+
 
 #Preview {
     ParentView()

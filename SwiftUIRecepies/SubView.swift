@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct SubView: View {
+    let item: Item
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(item.name)
+                .font(.title)
+            Text(item.description)
+                .font(.body)
+        }
+        .padding()
     }
 }
 
-#Preview {
-    SubView()
+struct SubView_Previews: PreviewProvider {
+    static var previews: some View {
+        SubView(item: Item(name: "Example Item", description: "This is an example item description"))
+    }
 }
+
+//#Preview {
+//   
+//    SubView()
+//}

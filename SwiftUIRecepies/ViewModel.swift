@@ -5,14 +5,18 @@
 //  Created by Lasse Durucz on 24/10/2023.
 //
 
-import SwiftUI
+import Foundation
 
-struct ViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class ItemViewModel: ObservableObject {
+    @Published var items: [Item]
+
+    init() {
+        self.items = [
+            Item(name: "Item 1", description: "Description 1"),
+            Item(name: "Item 222", description: "Description 2"),
+            Item(name: "Item 1", description: "Description 1"),
+            Item(name: "Item 222", description: "Description 2"),
+            // Add more items as needed
+        ]
     }
-}
-
-#Preview {
-    ViewModel()
 }
